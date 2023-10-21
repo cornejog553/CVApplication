@@ -1,0 +1,24 @@
+.personalDetails-Container {
+    background-color: white;
+    border-radius: 5px;
+    grid-area: "personalDetails";
+}
+
+.personalDetails-Container input {
+    width: 80%;
+    border-radius: 5px;
+    background-color: #C5C6D0;
+}
+
+.education-Container {
+    background-color: white;
+    border-radius: 5px;
+    grid-area: "education";
+}
+
+.education-Container input {
+    width: 80%;
+    border-radius: 5px;
+    background-color: #C5C6D0;
+}
+

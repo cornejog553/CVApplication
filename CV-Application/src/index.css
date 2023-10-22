@@ -69,15 +69,16 @@ button:focus-visible {
 } */
 
 body {
-  background-color: #C5C6D0;
+  background-color: #f3f4f6;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: "personalDetails personalDetails"
-                       "education";
+  grid-template-areas: "personalDetails resume"
+                       "education resume"
+                       "experience resume";
 }
 
 .personalDetails-Container {
@@ -90,4 +91,14 @@ body {
   background-color: white;
   border-radius: 5px;
   grid-area: "education";
+}
+
+.experience-Container {
+  background-color: white;
+  border-radius: 5px;
+  grid-area: "experience";
+}
+
+.resume-Container {
+  grid-area: "resume";
 }

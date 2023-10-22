@@ -1,5 +1,6 @@
 import PersonalDetails from "./components/PersonalDetails"
 import Education from "./components/Education"
+import WorkExperience from "./components/WorkExperience"
 import Resume from "./components/Resume"
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
                 <div>
                     <PersonalDetails />
                     <Education />
+                    <WorkExperience />
                 </div>
                 
                 <div>

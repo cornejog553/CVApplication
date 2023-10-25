@@ -2,6 +2,11 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.resume-Container {
+    background-color: white;
+    height: 100%;
+}
+
 .resume-header{
     background-color: #2F387B;
     color: white;
@@ -15,4 +20,68 @@
     width: 100%;
     display: inline-flex;
     justify-content: space-evenly;
+}
+
+.educationAndExperienceSection {
+    background-color: white;
+    height: 500px;
+}
+
+.education {
+    display: flex;
+    justify-content: center;
+}
+
+.education h2 {
+    background-color: #f3f4f6;
+    width: 90%;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.education-Content {
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    line-height: .5;
+}
+
+.university {
+    font-weight: bolder;
+}
+
+.universityAndDegree {
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+.experience {
+    display: flex;
+    justify-content: center;
+}
+
+.experience h2 {
+    background-color: #f3f4f6;
+    width: 90%;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.experience-Content {
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.jobCompany {
+    font-weight: bolder;
+}
+
+.universityAndDegree {
+    margin-left: 10px;
 }

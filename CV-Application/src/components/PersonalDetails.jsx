@@ -1,11 +1,17 @@
 import '../styles/PersonalDetails.css'
 
-function PersonalDetails() {
+function PersonalDetails({name, onChange}) {
+
     return(
         <div className="personalDetails-Container">
             <h1>Personal Details</h1>
             <h3>Full Name</h3>
-            <input type="text"></input>
+            <input 
+            type="text"
+            defaultValue={name}
+            onChange={onChange}
+            >
+            </input>
 
             <h3>Email</h3>
             <input type="email"></input>

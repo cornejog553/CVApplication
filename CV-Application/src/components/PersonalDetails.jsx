@@ -1,6 +1,6 @@
 import '../styles/PersonalDetails.css'
 
-function PersonalDetails({name, onChange}) {
+function PersonalDetails({setValues}) {
 
     return(
         <div className="personalDetails-Container">
@@ -8,19 +8,30 @@ function PersonalDetails({name, onChange}) {
             <h3>Full Name</h3>
             <input 
             type="text"
-            defaultValue={name}
-            onChange={onChange}
+            name="name"
+            onChange={setValues}
             >
             </input>
 
             <h3>Email</h3>
-            <input type="email"></input>
+            <input
+            type="email"
+            name="email"
+            onChange={setValues}
+            ></input>
 
             <h3>Phone Number</h3>
-            <input type="text"></input>
+            <input 
+            type="text"
+            name="phone"
+            onChange={setValues}
+            ></input>
 
             <h3>Address</h3>
-            <input type="text"></input>
+            <input
+            type="text"
+            name='address'
+            onChange={setValues}></input>
         </div>
     )
 }

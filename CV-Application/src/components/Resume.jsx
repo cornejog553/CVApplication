@@ -1,14 +1,14 @@
 import '../styles/Resume.css'
 
-function Resume({name}){
+function Resume({values}){
     return(
         <div className="resume-Container">  
             <div className="resume-header">
-                <h1>{name}</h1>
+                <h1>{values.name}</h1>
                 <div className='resume-header-info'>
-                    <p>email</p>
-                    <p>phone</p>
-                    <p>address</p>
+                    <p>{values.email}</p>
+                    <p>{values.phone}</p>
+                    <p>{values.address}</p>
                 </div>
             </div> 
             <div className='educationAndExperienceSection'>

@@ -12,22 +12,28 @@ const userProfile = {
 }
 
 function App() {
-    const [name, setName] = useState(userProfile.name);
+    const [values, setValues] = useState(userProfile);
+    function handleChange(event) {
+        setValues({ ...values, [event.target.name]: event.target.value });
+      }
 
     return (
             <div className="container">
                 <div>
                     <PersonalDetails 
                     userprofile={userProfile}
-                    name={name}
-                    onChange={(event)=> setName(event.target.value)}
+                    values={values}
+                    setValues={handleChange}
                     />
                     <Education />
                     <WorkExperience />
                 </div>
                 
                 <div>
-                    <Resume name={name}></Resume>
+                    <Resume
+                    values={values}
+                    setValues={handleChange}
+                    ></Resume>
                 </div>
             </div>
     )

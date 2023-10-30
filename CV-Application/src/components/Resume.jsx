@@ -1,6 +1,33 @@
 import '../styles/Resume.css'
 
 function Resume({values}){
+    const educationListItems = values.education.map(edu => 
+        <>
+            <div>
+            <p>{edu.startDate} – {edu.endDate}</p>
+            <p>{edu.location}</p>
+            </div>
+            <div className='universityAndDegree'>
+                <p className='university'>{edu.school}</p>
+                <p>{edu.degree}</p>
+            </div>
+        </>
+        );
+
+    const experienceListItems = values.experience.map(exp => 
+            <>
+                <div>
+                <p>{exp.startDate} – {exp.endDate}</p>
+                <p>{exp.location}</p>
+                </div>
+                <div className='universityAndDegree'>
+                    <p className='jobCompany'>{exp.company}</p>
+                    <p>{exp.position}</p>
+                    <p>{exp.description}</p>
+                </div>
+            </>
+            );
+
     return(
         <div className="resume-Container">  
             <div className="resume-header">
@@ -16,29 +43,14 @@ function Resume({values}){
                     <h2>Education</h2>
                 </div>
                 <div className='education-Content'>
-                    <div>
-                        <p>08/2020 – present</p>
-                        <p>New York City, US</p>
-                    </div>
-                    <div className='universityAndDegree'>
-                        <p className='university'>London City University</p>
-                        <p>Bachelors in Economics</p>
-                    </div>
+                    {educationListItems}
                 </div>
 
                 <div className='experience'>
                     <h2>Experience</h2>
                 </div>
                 <div className='experience-Content'>
-                    <div>
-                        <p>08/2020 – present</p>
-                        <p>New York City, US</p>
-                    </div>
-                    <div className='universityAndDegree'>
-                        <p className='jobCompany'>Umbrella Inc.</p>
-                        <p>UX & UI Designer</p>
-                        <p>Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android</p>
-                    </div>
+                    {experienceListItems}
                 </div>
             </div>
             

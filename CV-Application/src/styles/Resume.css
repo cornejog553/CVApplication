@@ -43,7 +43,6 @@
     margin-left: 5%;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    line-height: .5;
 }
 
 .university {

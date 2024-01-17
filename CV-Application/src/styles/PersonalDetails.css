@@ -18,10 +18,33 @@ input {
 }
 
 .education-Container {
-    background-color: white;
+    background-color: #f3f4f6;
     border-radius: 5px;
     grid-area: "education";
-    padding: 0 10px 10px 10px;
+    /* padding: 0 10px 10px 10px; */
+}
+
+.educationButton {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.education-Form-Container {
+    background-color: white;
+}
+
+.displayedSchoolButtons {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 0;
+    text-align: left;
+    margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .experience-Container {

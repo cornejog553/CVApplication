@@ -1,23 +1,70 @@
 import '../styles/PersonalDetails.css'
+import { useEffect, useState } from "react"
+import EducationForm from './EducationForm';
 
-function Education() {
+function Education({values, setEduList}) {
+    const [isEducationActive, setEducationIsActive] = useState(0);
+    const [activeSchoolForm, setActiveSchoolForm] = useState({test: "a"});
+    // const [list, setList] = useState(values.education);
+
+    var activateSchoolForm = (item) => {
+        {setEducationIsActive(2)
+        setActiveSchoolForm(item)
+        }        
+    }
+
+    var educationSchools = values.map(edu => 
+        <div key={edu.id}>
+            <button type='button' 
+            className='displayedSchoolButtons'
+            onClick={()=> {activateSchoolForm(edu)}}>{edu.school}
+            </button>
+            <button onClick={()=>handleRemove(edu.id)}>Delete</button>
+        </div>
+        );
+
+    function handleRemove(id){
+        educationSchools = values.filter((item) => item.id !== id); 
+        setEduList(educationSchools)  
+        setEducationIsActive(0) 
+    }
+        
     return(
         <div className="education-Container">
-            <h1>Education</h1>
-            <h3>School</h3>
-            <input type="text"></input>
+            { isEducationActive == 1 ? (
+                <>
+                    <button className = "educationButton"
+                    onClick = {()=> setEducationIsActive(0)}
+                    >
+                    <h1>Education</h1>
+                    </button>
+                    <h2>{educationSchools}</h2>
+                </>
+                
+            ) : isEducationActive == 2 ? (
+                <>
+                    <button className = "educationButton"
+                    onClick = {()=> setEducationIsActive(0)}
+                    >
+                    <h1>Education</h1>
+                    </button>
+                    <EducationForm
+                    values={activeSchoolForm}
+                    onRemove={handleRemove}
+                    setEducationIsActive={setEducationIsActive}
+                    />
+                </>
+                
+            )
+              : (
+                <button className = "educationButton"
+                onClick = {()=> setEducationIsActive(1)}
+                >
+                <h1>Education</h1>
+                </button>
+                )
+            }
 
-            <h3>Degree</h3>
-            <input type="email"></input>
-
-            <h3>Start Date</h3>
-            <input type="date"></input>
-
-            <h3>End Date</h3>
-            <input type="date"></input>
-
-            <h3>Location</h3>
-            <input type="text"></input>
         </div>
     )
 }

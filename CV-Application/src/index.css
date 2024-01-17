@@ -89,9 +89,9 @@ body {
 }
 
 .education-Container {
-  background-color: white;
   border-radius: 5px;
   grid-area: "education";
+  margin-top: 20px;
 }
 
 .experience-Container {

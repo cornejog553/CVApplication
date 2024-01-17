@@ -10,6 +10,7 @@ const userProfile = {
     phone: "123456789",
     address: "12345 5th Ave, New York, NY",
     education: [{
+        id: "1",
         school: "Cal Poly Pomona",
         degree: "Computer Information System",
         location: "Pomona, CA",
@@ -17,6 +18,7 @@ const userProfile = {
         endDate: "06/2018"
     },
     {
+        id: "2",
         school: "Saddleback College",
         degree: "General Education",
         location: "Mission Viejo, CA",
@@ -44,7 +46,10 @@ const userProfile = {
 }
 
 function App() {
+    const educationValues = userProfile.education
+
     const [values, setValues] = useState(userProfile);
+    const [edulist, setEduList] = useState(educationValues);
     function handleChange(event) {
         setValues({ ...values, [event.target.name]: event.target.value });
       }
@@ -57,13 +62,17 @@ function App() {
                     values={values}
                     setValues={handleChange}
                     />
-                    <Education />
+                    <Education 
+                    values={edulist} 
+                    setEduList={setEduList}
+                    />
                     <WorkExperience />
                 </div>
                 
                 <div>
                     <Resume
                     values={values}
+                    eduValues={edulist}
                     setValues={handleChange}
                     ></Resume>
                 </div>

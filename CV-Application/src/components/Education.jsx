@@ -38,6 +38,7 @@ function Education({values, setEduList}) {
                     >
                     <h1>Education</h1>
                     </button>
+                    <button>Add Education</button>
                     <h2>{educationSchools}</h2>
                 </>
                 
@@ -52,16 +53,21 @@ function Education({values, setEduList}) {
                     values={activeSchoolForm}
                     onRemove={handleRemove}
                     setEducationIsActive={setEducationIsActive}
+                    setEduList={setEduList}
+                    eduList={values}
                     />
                 </>
                 
             )
               : (
-                <button className = "educationButton"
-                onClick = {()=> setEducationIsActive(1)}
-                >
-                <h1>Education</h1>
-                </button>
+                <>
+                    <button className = "educationButton"
+                    onClick = {()=> setEducationIsActive(1)}
+                    >
+                    <h1>Education</h1>
+                    </button>
+                    <button onClick = {()=> setEducationIsActive(2) }>Add Education</button>
+                </>
                 )
             }
 

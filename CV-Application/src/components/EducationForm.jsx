@@ -10,24 +10,52 @@ function EducationForm({values, setActiveSchoolForm, onRemove, setEducationIsAct
     }
     const unique_id = uuid();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e, values, eduList) => {
+        var newEduItem = true
+
         e.preventDefault();
         var newEducation = {
             id: unique_id,
             school: e.target[0].value,
             degree: e.target[1].value,
-            location: e.target[2].value,
-            startDate: e.target[3].value,
-            endDate: e.target[4].value
+            startDate: e.target[2].value,
+            endDate: e.target[3].value,
+            location: e.target[4].value
         }
-        // eduList.push(newEducation)
-        setEduList([...eduList, newEducation])
-        setEducationIsActive(1)
+
+        const nextEduList = eduList.map(edu => {
+            console.log(values.id);
+            if(values.id === edu.id){
+                console.log("EDU ID: " +  edu.id);
+                newEduItem = false
+                return {
+                    ...edu,
+                    school: e.target[0].value,
+                    degree: e.target[1].value,
+                    startDate: e.target[2].value,
+                    endDate: e.target[3].value,
+                    location: e.target[4].value,
+                  };
+            } else {
+                return edu
+            }
+        })
+        console.log(nextEduList);
+        if(newEduItem === false){
+            console.log("Running ExistingEdu");
+            setEduList(nextEduList)
+            setEducationIsActive(1)
+        } else {
+            console.log("Running NewEdu");
+            setEduList([...eduList, newEducation])
+            setEducationIsActive(1)
+        }
+
     }
     
     return(
         <div className="education-Form-Container">
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e, values, eduList)}>
             <h3>School</h3>
             <input type="text" placeholder={values.school}></input>
 

@@ -3,7 +3,7 @@ import '../styles/Resume.css'
 function Resume({values, eduValues}){
     const educationListItems = eduValues.map(edu => 
         <>
-            <div>
+            <div key={edu.id}>
             <p>{edu.startDate} – {edu.endDate}</p>
             <p>{edu.location}</p>
             </div>

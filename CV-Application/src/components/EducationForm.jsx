@@ -2,7 +2,12 @@ import '../styles/PersonalDetails.css'
 import { v4 as uuid } from "uuid";
 import { useEffect, useState } from "react"
 
-function EducationForm({values, onRemove, setEducationIsActive,setEduList, eduList}) {
+function EducationForm({values, setActiveSchoolForm, onRemove, setEducationIsActive,setEduList, eduList}) {
+
+    const cancelForm = () => {
+        setEducationIsActive(0)
+        setActiveSchoolForm({test: "a"})
+    }
     const unique_id = uuid();
 
     const handleSubmit = (e) => {
@@ -15,8 +20,8 @@ function EducationForm({values, onRemove, setEducationIsActive,setEduList, eduLi
             startDate: e.target[3].value,
             endDate: e.target[4].value
         }
-        eduList.push(newEducation)
-        setEduList(eduList)
+        // eduList.push(newEducation)
+        setEduList([...eduList, newEducation])
         setEducationIsActive(1)
     }
     
@@ -38,7 +43,7 @@ function EducationForm({values, onRemove, setEducationIsActive,setEduList, eduLi
             <h3>Location</h3>
             <input type="text" placeholder={values.location}></input>
             <button type='button' onClick={()=> onRemove(values.id)}>Delete</button>
-            <button onClick={()=>{setEducationIsActive(0)}}>Cancel</button>
+            <button onClick={()=>{cancelForm()}}>Cancel</button>
             <button type='submit'>Save</button>
         </form>
             

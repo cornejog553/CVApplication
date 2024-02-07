@@ -27,6 +27,7 @@ function Education({values, setEduList}) {
         educationSchools = values.filter((item) => item.id !== id); 
         setEduList(educationSchools)  
         setEducationIsActive(0) 
+        setActiveSchoolForm({test: "a"})
     }
         
     return(

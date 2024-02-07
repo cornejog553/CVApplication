@@ -40,16 +40,15 @@ function EducationForm({values, setActiveSchoolForm, onRemove, setEducationIsAct
                 return edu
             }
         })
-        console.log(nextEduList);
         if(newEduItem === false){
-            console.log("Running ExistingEdu");
             setEduList(nextEduList)
             setEducationIsActive(1)
         } else {
-            console.log("Running NewEdu");
             setEduList([...eduList, newEducation])
             setEducationIsActive(1)
         }
+
+        setActiveSchoolForm({test: "a"})
 
     }
     
@@ -57,19 +56,19 @@ function EducationForm({values, setActiveSchoolForm, onRemove, setEducationIsAct
         <div className="education-Form-Container">
         <form onSubmit={(e) => handleSubmit(e, values, eduList)}>
             <h3>School</h3>
-            <input type="text" placeholder={values.school}></input>
+            <input type="text" defaultValue={values.school}></input>
 
             <h3>Degree</h3>
-            <input type="text" placeholder={values.degree}></input>
+            <input type="text" defaultValue={values.degree}></input>
 
             <h3>Start Date</h3>
-            <input type="text" placeholder={values.startDate}></input>
+            <input type="text" defaultValue={values.startDate}></input>
 
             <h3>End Date</h3>
-            <input type="text" placeholder={values.endDate}></input>
+            <input type="text" defaultValue={values.endDate}></input>
 
             <h3>Location</h3>
-            <input type="text" placeholder={values.location}></input>
+            <input type="text" defaultValue={values.location}></input>
             <button type='button' onClick={()=> onRemove(values.id)}>Delete</button>
             <button onClick={()=>{cancelForm()}}>Cancel</button>
             <button type='submit'>Save</button>

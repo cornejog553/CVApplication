@@ -1,6 +1,6 @@
 import '../styles/Resume.css'
 
-function Resume({values, eduValues}){
+function Resume({values, eduValues, expValues}){
     const educationListItems = eduValues.map(edu => 
         <>
             <div key={edu.id}>
@@ -14,7 +14,7 @@ function Resume({values, eduValues}){
         </>
         );
 
-    const experienceListItems = values.experience.map(exp => 
+    const experienceListItems = expValues.map(exp => 
             <>
                 <div>
                 <p>{exp.startDate} – {exp.endDate}</p>

@@ -27,6 +27,7 @@ const userProfile = {
     }
     ],
     experience: [{
+        id: "1",
         company: "Umbrella Inc.",
         position: "UX & UI Designer",
         description: "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android",
@@ -35,6 +36,7 @@ const userProfile = {
         endDate: "06/2018"
     },
     {
+        id: "2",
         company: "Goodleap",
         position: "Application Support Engineer",
         description: "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android",
@@ -47,9 +49,11 @@ const userProfile = {
 
 function App() {
     const educationValues = userProfile.education
+    const experienceValues = userProfile.experience
 
     const [values, setValues] = useState(userProfile);
     const [edulist, setEduList] = useState(educationValues);
+    const [explist, setExpList] = useState(experienceValues);
     function handleChange(event) {
         setValues({ ...values, [event.target.name]: event.target.value });
       }
@@ -66,7 +70,10 @@ function App() {
                     values={edulist} 
                     setEduList={setEduList}
                     />
-                    <WorkExperience />
+                    <WorkExperience
+                    values={explist}
+                    setExpList={setExpList}
+                    />
                 </div>
                 
                 <div>
@@ -74,6 +81,7 @@ function App() {
                     values={values}
                     eduValues={edulist}
                     setValues={handleChange}
+                    expValues={explist}
                     ></Resume>
                 </div>
             </div>
